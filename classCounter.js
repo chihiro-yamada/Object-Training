@@ -21,7 +21,12 @@ class Counter {
 }
 
 let counter = new Counter;
+let counter_2 = new Counter;
 counter.up();
 console.log(counter.getValue());
 counter.up();
 console.log(counter.getValue()); 
+counter_2.up();
+console.log(counter_2.getValue());
+counter_2.down();
+console.log(counter_2.getValue()); 
