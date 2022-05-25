@@ -6,6 +6,14 @@ class Counter {
   up() {
     this.value += 1;
   }
+  
+  down() {
+    this.value -= 1;
+  }
+
+  resetValue() {
+    this.value = 0;
+  }
 
   getValue() {
     return this.value;
