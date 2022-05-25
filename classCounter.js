@@ -20,13 +20,29 @@ class Counter {
   }
 }
 
-let counter = new Counter;
-let counter_2 = new Counter;
-counter.up();
-console.log(counter.getValue());
-counter.up();
-console.log(counter.getValue()); 
-counter_2.up();
-console.log(counter_2.getValue());
-counter_2.down();
-console.log(counter_2.getValue()); 
+class EvenCounter {
+  constructor() {
+    this.counter = new Counter;
+    this.value = 0;
+  }
+
+  up() {
+    this.counter.up();
+    if (this.counter.getValue() % 2 == 0) {
+      this.value += 1;
+    };
+  }
+
+  getValue() {
+    return this.value;
+  }
+}
+
+let counter = new EvenCounter;
+counter.up(); // => ここではアップしない
+counter.up(); // => ここでアップ
+console.log(counter.getValue()); // => 1と表示される
+counter.up(); // => ここではアップしない
+counter.up(); // => ここでアップ
+counter.up(); // => ここではアップしない
+console.log(counter.getValue()); // => 2と表示される
