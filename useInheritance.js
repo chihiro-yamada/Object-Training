@@ -72,7 +72,19 @@ class ThinBookshelf extends Bookshelf {
   }
 
   canAddBook(book) {
-    return book.pageSize > this.maxPage;
+    return book.pageSize < this.maxPage;
+  }
+}
+
+
+class LimitedBookshelf extends Bookshelf {
+  constructor(maxSize = 3) {
+    super(); // 親のconstructorを呼びます
+    this.maxSize = maxSize;
+  }
+
+  canAddBook(book) {
+    return this.books.length < this.maxSize;
   }
 }
 
@@ -86,6 +98,6 @@ if (!RejectedBookshelf.addBook(new Book("坊ちゃん", 520))) {
 let thinBookshelf = new ThinBookshelf
 thinBookshelf.addBook(new Book("我輩は猫である", 454));
 thinBookshelf.addBook(new Book("こころ", 876));
-if (!thinBookshelf.addBook(new Book("坊ちゃん", 19))) {
+if (thinBookshelf.addBook(new Book("坊ちゃん", 19))) {
   console.log(`新しい本を追加できませんでした。今の本の数: ${thinBookshelf.size()}`);
 }
