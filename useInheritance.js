@@ -103,21 +103,21 @@ class LimitedBookshelf extends Bookshelf {
   }
 }
 
-let RejectedBookshelf = new RejectedBocchanBookshelf
+const RejectedBookshelf = new RejectedBocchanBookshelf
 RejectedBookshelf.addBook(new Book("我輩は猫である", 454));
 RejectedBookshelf.addBook(new Book("こころ", 876));
 if (!RejectedBookshelf.addBook(new Book("坊ちゃん", 520))) {
   console.log(`新しい本を追加できませんでした。今の本の数: ${RejectedBookshelf.size()}`);
 }
 
-let thinBookshelf = new ThinBookshelf
+const thinBookshelf = new ThinBookshelf
 thinBookshelf.addBook(new Book("我輩は猫である", 454));
 thinBookshelf.addBook(new Book("こころ", 876));
 if (thinBookshelf.addBook(new Book("坊ちゃん", 19))) {
   console.log(`新しい本を追加できませんでした。今の本の数: ${thinBookshelf.size()}`);
 }
 
-let bookshelf = new LimitedBookshelf;
+const bookshelf = new LimitedBookshelf;
 bookshelf.addBook(new Book("我輩は猫である", 454));
 bookshelf.addBook(new Book("こころ", 876));
 bookshelf.addBook(new Book("我輩は猫である", 454));
