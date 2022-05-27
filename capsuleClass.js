@@ -68,3 +68,9 @@ console.log(point.sumPoint());
 console.log(point.avePoint());
 console.log(point.maxPerson());
 console.log(point.addPerson({ name: '阿部', point: 95 }));
+
+// 堅牢にするアイデアは特に思い浮かびませんでした。
+
+// sumPoint += this.#results[i].point;
+// 上記のコードのpointをgetPoint()のようにpointを取得するメソッドの準備も考えましたが
+// 堅牢という点で、どちらでも変わらないと自分は判断しました。
