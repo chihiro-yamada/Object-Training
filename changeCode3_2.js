@@ -129,7 +129,3 @@ if (!bookshelf.addBook(new Book("門", 345))) {
 
 console.log(bookshelf.findBookByTitle("こころ"));
 console.log(bookshelf.sumPageSize());
-
-
-
-

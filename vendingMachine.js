@@ -95,4 +95,3 @@ try {
 console.log(vendingMachine)
 console.log(vendingMachine.canBuy("コカコーラ"))
 console.log(vendingMachine.canBuy("モンスター"))
-
