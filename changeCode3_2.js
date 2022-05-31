@@ -44,10 +44,10 @@ class Bookshelf {
   }
 
   findBookByTitle(title) {
-    for (let i = 0; i < this.books.length; i++) {
-      if (this.books[i].getTitle() === title) return this.books[i];
-    }
-    return null;
+    const book = this.books.filter(function(value) {
+      return value.getTitle() === title 
+    })
+    return book
   }
 
   sumPageSize() {

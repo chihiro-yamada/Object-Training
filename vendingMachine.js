@@ -33,33 +33,31 @@ class VendingMachine {
     }
   }
 
-  // 商品名から商品のインデックスを決定
+  // 商品名から商品を決定
   findItemIndexByProductName(productName) {
-    for (let i = 0; i < this.items.length; i++) {
-      if (this.items[i].getProductName() === productName) return i;
-    }
-    return null;
+    const item = this.items.filter(function (value) {
+      return value.getProductName() === productName
+    })
+    return item
   }
 
   // 商品の購入
   buy(productName, cash) {
-    const num = this.findItemIndexByProductName(productName);
-    // 商品インデックスから商品決定
-    const item = this.items[num]
+    const item = this.findItemIndexByProductName(productName);
     // 例外処理条件
-    if (num == null) { throw new Error('在庫がありません'); }
-    if (item.getCash() > cash) { throw new Error('お金が足りません'); }
+    if (item.length == 0) { throw new Error('在庫がありません'); }
+    if (item[0].getCash() > cash) { throw new Error('お金が足りません'); }
     // 販売機から商品取り出し
-    this.items.splice(num, 1)
+    const num = this.items.indexOf(item[0]);
+    this.items.splice(num, 1);
 
-    return item
+    return item[0];
   }
 
   // 在庫確認
   canBuy(productName) {
-    const num = this.findItemIndexByProductName(productName);
-    const item = this.items[num];
-    return Boolean(item);
+    const item = this.findItemIndexByProductName(productName);
+    return Boolean(item.length);
   }
 }
 
