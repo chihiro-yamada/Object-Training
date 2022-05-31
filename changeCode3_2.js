@@ -49,12 +49,11 @@ class Bookshelf {
     })
     return book
   }
-
+  // reduceメソッド使用した場合
   sumPageSize() {
-    let size = 0
-    for (let i = 0; i < this.books.length; i++) {
-      size += this.books[i].getPageSize();
-    }
+    let size = this.books.reduce(function (sum, value) {
+      return sum + value.getPageSize();
+    },0)
     return size;
   }
 

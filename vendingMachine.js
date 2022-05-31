@@ -34,7 +34,7 @@ class VendingMachine {
   }
 
   // 商品名から商品を決定
-  findItemIndexByProductName(productName) {
+  findItemListByProductName(productName) {
     const item = this.items.filter(function (value) {
       return value.getProductName() === productName
     })
@@ -43,7 +43,7 @@ class VendingMachine {
 
   // 商品の購入
   buy(productName, cash) {
-    const item = this.findItemIndexByProductName(productName);
+    const item = this.findItemListByProductName(productName);
     // 例外処理条件
     if (item.length == 0) { throw new Error('在庫がありません'); }
     if (item[0].getCash() > cash) { throw new Error('お金が足りません'); }
@@ -56,7 +56,7 @@ class VendingMachine {
 
   // 在庫確認
   canBuy(productName) {
-    const item = this.findItemIndexByProductName(productName);
+    const item = this.findItemListByProductName(productName);
     return Boolean(item.length);
   }
 }
